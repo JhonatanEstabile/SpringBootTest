@@ -14,8 +14,8 @@ public class Autor {
     @Column(name = "nome", nullable = false, unique = true)
     private String nome;
 
-    @OneToMany(mappedBy = "autor")
-    private List<Livro> livro = new ArrayList<>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "autor")
+    private List<Livro> livros = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -25,12 +25,12 @@ public class Autor {
         this.id = id;
     }
 
-    public List<Livro> getLivro() {
-        return livro;
+    public List<Livro> getLivros() {
+        return livros;
     }
 
-    public void setLivro(List<Livro> livro) {
-        this.livro = livro;
+    public void setLivros(final List<Livro> livros) {
+        this.livros = livros;
     }
 
     public void setNome(String nome)

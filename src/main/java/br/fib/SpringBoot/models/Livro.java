@@ -1,6 +1,7 @@
 package br.fib.SpringBoot.models;
 
 import javax.persistence.*;
+import br.fib.SpringBoot.models.Autor;
 
 @Entity
 @Table(name = "livros")
@@ -15,7 +16,7 @@ public class Livro {
     @Column(name = "quantidade_paginas", nullable = false, unique = true)
     private int quantidadePaginas;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "autor_id")
     private Autor autor;
 
