@@ -15,4 +15,16 @@ public class LivroService {
     public List<Livro> listaTodosLivros() {
         return livroRepository.findAll();
     }
+
+    public void salvarLivro(Livro livro) {
+        livroRepository.save(livro);
+    }
+
+    public Livro buscaLivro(Long id) {
+        return livroRepository.findById(id).orElseThrow(() -> new RuntimeException());
+    }
+
+    public void excluiLivro(Long id) {
+        livroRepository.deleteById(id);
+    }
 }
