@@ -14,10 +14,10 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <ul class="nav navbar-nav">
-                <li>
+                <li class="active">
                     <a th:href="@{/}">HOME <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="active">
+                <li>
                     <a th:href="@{/livro/list}">LIVROS <span class="sr-only">(current)</span></a>
                 </li>
                 <li>
@@ -27,27 +27,8 @@
         </div>
     </nav>
 
-    <div style="margin-top:80px">
-        <a th:href="@{/livro/novo}" class="btn btn-success">Novo</a>
-        <table class="table table-striped">
-            <tr>
-                <th>ID</th>
-                <th>NOME</th>
-                <th>AUTOR</th>
-                <th>PÁGINAS</th>
-                <th></th>
-            </tr>
-            <tr th:each="livro : ${livros}">
-                <td th:text="${livro.id}">id do livro</td>
-                <td th:text="${livro?.nome}">nome do livro</td>
-                <td th:text="${livro?.autor?.nome}">nome do autor</td>
-                <td th:text="${livro?.quantidadePaginas}">total de páginas do livro</td>
-                <td>
-                    <a th:href="@{/livro/alterar/}+${livro.id}" class="btn btn-primary pull-right">Alterar</a>
-                    <a th:href="@{/livro/excluir/}+${livro.id}" class="btn btn-danger pull-right">Excluir</a>
-                </td>
-            </tr>
-        </table>
+    <div class="jumbotron" style="margin-top:80px">
+        <h1>Página Inicial</h1>
     </div>
 </div>
 </body>

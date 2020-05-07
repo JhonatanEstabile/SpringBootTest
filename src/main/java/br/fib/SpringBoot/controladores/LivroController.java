@@ -48,7 +48,7 @@ public class LivroController {
         }
 
         livroService.salvarLivro(livro);
-        return new ModelAndView("redirect:/livros/list");
+        return new ModelAndView("redirect:/livro/list");
     }
 
     @GetMapping("/alterar/{id}")
@@ -67,6 +67,6 @@ public class LivroController {
     @GetMapping("/excluir/{id}")
     public ModelAndView excluir(@PathVariable("id") Long id) {
         livroService.excluiLivro(id);
-        return new ModelAndView("redirect:/livros/list");
+        return new ModelAndView("redirect:/livro/list");
     }
 }

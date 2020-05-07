@@ -17,10 +17,10 @@
                 <li>
                     <a th:href="@{/}">HOME <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="active">
+                <li>
                     <a th:href="@{/livro/list}">LIVROS <span class="sr-only">(current)</span></a>
                 </li>
-                <li>
+                <li class="active">
                     <a th:href="@{/autor/list}">AUTORES <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
@@ -28,23 +28,20 @@
     </nav>
 
     <div style="margin-top:80px">
-        <a th:href="@{/livro/novo}" class="btn btn-success">Novo</a>
+        <a th:href="@{/autor/novo}" class="btn btn-success">Novo</a>
+        <br/>
         <table class="table table-striped">
             <tr>
                 <th>ID</th>
                 <th>NOME</th>
-                <th>AUTOR</th>
-                <th>PÁGINAS</th>
                 <th></th>
             </tr>
-            <tr th:each="livro : ${livros}">
-                <td th:text="${livro.id}">id do livro</td>
-                <td th:text="${livro?.nome}">nome do livro</td>
-                <td th:text="${livro?.autor?.nome}">nome do autor</td>
-                <td th:text="${livro?.quantidadePaginas}">total de páginas do livro</td>
+            <tr th:each="author : ${authors}">
+                <td th:text="${author.id}">id do autor</td>
+                <td th:text="${author?.nome}">nome do autor</td>
                 <td>
-                    <a th:href="@{/livro/alterar/}+${livro.id}" class="btn btn-primary pull-right">Alterar</a>
-                    <a th:href="@{/livro/excluir/}+${livro.id}" class="btn btn-danger pull-right">Excluir</a>
+                    <a th:href="@{/autor/alterar/}+${author.id}" class="btn btn-primary pull-right">Alterar</a>
+                    <a th:href="@{/autor/excluir/}+${author.id}" class="btn btn-danger pull-right">Excluir</a>
                 </td>
             </tr>
         </table>

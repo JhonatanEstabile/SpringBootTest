@@ -11,7 +11,7 @@ public class Autor {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "nome", nullable = false, unique = true)
+    @Column(name = "nome", nullable = false, unique = false)
     private String nome;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "autor")
