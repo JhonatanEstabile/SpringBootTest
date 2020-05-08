@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="layout">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8" />
     <title>Livros</title>
@@ -22,6 +22,12 @@
                 </li>
                 <li>
                     <a th:href="@{/autor/list}">AUTORES <span class="sr-only">(current)</span></a>
+                </li>
+                <li sec:authorize="hasAuthority('ROLE_ADMIN')" >
+                    <a th:href="@{/user/list}">USUÁRIOS</a>
+                </li>
+                <li>
+                    <a th:href="@{/user/logout}">LOGOUT</a>
                 </li>
             </ul>
         </div>

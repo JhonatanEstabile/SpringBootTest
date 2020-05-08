@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<meta charset="UTF-8" />
+	<title>Insert title here</title>
+
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap-theme.min.css}" />
+	<link rel="stylesheet" th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.css}" />
+</head>
+<body style="background-color: #F3F3F3">
+	<div class="container">
+		<div style="height: 300px; width:300px; margin:150px auto auto auto;">
+			<span style="margin: auto"><h3>Login</h3></span>
+			<form id="userForm" th:action="@{/user/autentication}" th:object="${userForm}" action="#" method="post" class="form-group">
+				<input type="text" th:field="*{username}" placeholder="Usuário" class="form-control"/><span  th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Nome Error</span><br/>
+				<input type="password" th:field="*{password}" placeholder="Senha" class="form-control"/><span  th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Nome Error</span><br/>
+
+				<a th:href="@{/user/registration}">Cadastrar novo usuário</a>
+				<br>
+
+				<input type="submit" name="login" value="login" class="btn btn-block btn-success"/>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
