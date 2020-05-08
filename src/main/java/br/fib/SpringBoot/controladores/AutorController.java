@@ -22,7 +22,7 @@ public class AutorController {
 
     @GetMapping("/list")
     public ModelAndView list() {
-        ModelAndView modelAndView = new ModelAndView("books/authors/list");
+        ModelAndView modelAndView = new ModelAndView("authors/list");
 
         List<Autor> listaAutores = autorService.listaAutores();
         modelAndView.addObject("authors", listaAutores);
@@ -32,7 +32,7 @@ public class AutorController {
 
     @GetMapping("/novo")
     public ModelAndView createForm(@ModelAttribute Autor autor) {
-        ModelAndView modelAndView = new ModelAndView("books/authors/form");
+        ModelAndView modelAndView = new ModelAndView("authors/form");
         return modelAndView;
     }
 
@@ -40,7 +40,7 @@ public class AutorController {
     public ModelAndView create(@Valid Autor autor, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return new ModelAndView("books/authors/form");
+            return new ModelAndView("authors/form");
         }
 
         autorService.salvarAutor(autor);
@@ -52,7 +52,7 @@ public class AutorController {
 
         Autor autor = autorService.buscaAutor(id);
 
-        ModelAndView modelAndView = new ModelAndView("books/authors/form");
+        ModelAndView modelAndView = new ModelAndView("authors/form");
         modelAndView.addObject("autor", autor);
 
         return modelAndView;

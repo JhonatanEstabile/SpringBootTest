@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="layout">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8" />
     <title>Livros</title>
@@ -13,23 +13,23 @@
 </head>
 <body>
 <div class="container">
-    <form method="post" action="#" th:action="@{/livro/gravar}" th:object="${livro}">
+    <form method="post" action="#" th:action="@{/livro/gravar}" th:object="${livro}" class="form-group">
         <input type="hidden" th:field="*{id}">
 
-        Nome: <input type="text" th:field="*{nome}">
+        Nome: <input type="text" th:field="*{nome}" class="form-control">
         <span  th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Error</span><br>
 
-        Quantidade Páginas: <input type="text" th:field="*{quantidadePaginas}">
+        Quantidade Páginas: <input type="text" th:field="*{quantidadePaginas}" class="form-control">
         <span  th:if="${#fields.hasErrors('quantidadePaginas')}" th:errors="*{quantidadePaginas}">Error</span><br>
 
         Autor:
-        <select th:field="*{autor}">
+        <select th:field="*{autor}" class="form-control">
             <option value="">Selecione o Autor</option>
             <option th:each="autor : ${listaAutores}" th:value="${autor.id}" th:text="${autor.nome} " selected="selected"></option>
         </select>
         <br>
 
-        <input type="submit">
+        <input type="submit" class="btn btn-success">
     </form>
 </div>
 </body>

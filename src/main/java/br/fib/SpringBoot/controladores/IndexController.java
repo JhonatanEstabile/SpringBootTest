@@ -7,12 +7,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/")
-public class IndexController {
-
+public class IndexController
+{
     @GetMapping("/")
-    public ModelAndView index() {
-        ModelAndView modelAndView = new ModelAndView("books/index");
+    public ModelAndView index()
+    {
+        ModelAndView modelAndView = new ModelAndView("index");
         return modelAndView;
     }
-
 }

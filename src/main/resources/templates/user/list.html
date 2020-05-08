@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<meta charset="UTF-8" />
+	<title>Insert title here</title>
+
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" />
+	<link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap-theme.min.css}" />
+	<link rel="stylesheet" th:src="@{/webjars/jquery-ui/1.12.1/jquery-ui.css}" />
+</head>
+<body>
+	<div class="container">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a th:href="@{/}">HOME <span class="sr-only">(current)</span></a>
+					</li>
+					<li>
+						<a th:href="@{/livro/list}">LIVROS</a>
+					</li>
+					<li>
+						<a th:href="@{/autor/list}">AUTORES</a>
+					</li>
+					<li class="active" sec:authorize="hasAuthority('ROLE_ADMIN')">
+						<a th:href="@{/user/list}">USUÁRIOS <span class="sr-only">(current)</span></a>
+					</li>
+					<li>
+						<a th:href="@{/user/logout}">LOGOUT</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div style="margin-top:80px">
+			<table class="table table-striped">
+				<tr>
+					<td>Username</td>
+					<td>Password</td>
+				</tr>
+				<tr th:each="user : ${users}">
+					<td th:text="${user.username}">Username</td>
+					<td th:text="${user.password}">Password</td>
+				</tr>
+			</table>
+		</div>
+
+	</div>
+</body>
+</html>
